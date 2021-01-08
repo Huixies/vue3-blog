@@ -10,12 +10,7 @@
       >{{period}}</a>
     </p>
 
-    <a data-test="post" v-for="post in posts" :key="post.id" class="panel-block">
-      <div>
-        <a>{{post.title}}</a>
-        <div>{{post.created.format('yyyy-MM-dd')}}</div>
-      </div>
-    </a>
+    <TimelinePost v-for="post in posts" :key="post.id" :post='post' />
   </nav>
 </template>
 
@@ -24,10 +19,18 @@ import { Period, Post } from "@/types";
 import { ref, computed } from "vue";
 import { todayPost, thisWeek, thisMonth } from "@/mock";
 import moment from "moment";
+import TimelinePost from './TimelinePost.vue';
+import { defineComponent } from 'vue';
+import {useStore} from '@/store';
 
-export default {
+const delay = (ms:number)=>new Promise(res =>setTimeout(res,ms))
+
+export default defineComponent({
   name: "Timeline",
-  setup() {
+  components:{
+    TimelinePost
+  },
+  async setup() {
     const periods: Period[] = ["今天", "本周", "本月"];
     const selectedPeriod = ref<Period>("今天");
 
@@ -36,6 +39,11 @@ export default {
       selectedPeriod.value = period;
     };
 
+    const store = useStore();
+    console.log(store.getState());
+
+    await delay(2000)
+    //展示
     const posts = computed(() =>
       [todayPost, thisWeek, thisMonth].filter((post) => {
         if (
@@ -62,5 +70,5 @@ export default {
 
     return { periods, selectedPeriod, setPeriod, posts };
   },
-};
+})
 </script>

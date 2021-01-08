@@ -19,6 +19,10 @@ describe("Timeline.vue", () => {
     expect($thisWeek.classes()).toContain("is-active");
 
     const $thisMonth = wrapper.findAll("[data-test='period']")[2];
+    await $thisMonth.trigger("click");
+
+    expect($thisWeek.classes()).not.toContain("is-active");
+    expect($thisMonth.classes()).toContain("is-active");
   });
 
   it("测试数据加载功能", async () => {
