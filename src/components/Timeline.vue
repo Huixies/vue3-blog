@@ -40,12 +40,21 @@ export default defineComponent({
     };
 
     const store = useStore();
-    console.log(store.getState());
+
+    if(!store.getState().posts.loaded){
+      await store.fetchPosts()
+    }
+
+
+    const allPosts = store.getState().posts.ids.reduce<Post[]>((acc,id)=>{
+        const post = store.getState().posts.all[id];
+        return acc.concat(post);
+   },[] );
 
     await delay(2000)
     //展示
     const posts = computed(() =>
-      [todayPost, thisWeek, thisMonth].filter((post) => {
+      allPosts.filter((post) => {
         if (
           selectedPeriod.value == "今天" &&
           post.created.isAfter(moment().subtract(1, "day"))

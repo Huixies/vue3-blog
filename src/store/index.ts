@@ -1,6 +1,7 @@
 import { reactive } from 'vue';
 import {todayPost,thisWeek,thisMonth} from '@/mock';
 import { Post } from '@/types';
+import axios from 'axios';
 
 interface PostsState{
     ids: string[];
@@ -40,11 +41,25 @@ class Store{
     public getState(): State{
         return this.state
     }
+
+    async fetchPosts() {
+        const response = await axios.get<Post[]>('/posts')
+        //处理数据
+        const ids: string[] = [];
+        const all: Record<string, Post> = {};
+        for (const post of response.data) {
+            ids.push(post.id.toString());
+            all[post.id] = post;
+        }
+        
+        this.state.posts = {
+            ids,
+            all,
+            loaded:true
+        }
+    }
 }
 
 const store = new Store(initialState())
-
-
-
 
 export const useStore = () => store;
