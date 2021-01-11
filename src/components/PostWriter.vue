@@ -5,23 +5,30 @@
         <div class="field">
           <div class="label">博客标题</div>
           <div class="control">
-            <input type="text" v-model="title" class="input" />
+            <input data-test='post-title' type="text" v-model="title" class="input" />
             {{ title }}
           </div>
         </div>
       </div>
     </div>
+
     <!-- 写的内容和展示的内容 -->
     <div class="columns">
       <div class="column is-one-half">
         写的内容
-        <div contenteditable id="markdown" ref="contentEditable" @input="handleEdit" />
+        <div data-test='markdown' contenteditable id="markdown" ref="contentEditable" @input="handleEdit" />
       </div>
       <div class="column is-one-half">
         <div v-html="html" />
       </div>
     </div>
     
+    <!-- 保存 -->
+    <div class="columns">
+      <div class="column">
+        <button data-test='submit-post' @click="handleSubmit" class="button is-primary is-pull-right">提交</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -29,7 +36,9 @@
 import {defineComponent, onMounted, ref,watch} from 'vue';
 import { Post } from '@/types';
 //@ts-ignore
-import {parse} from 'marked';
+import {parse,MarkedOptions} from 'marked';
+import {highlightAuto} from 'highlight.js';
+import debounce from 'lodash/debounce.js';
 
 export default defineComponent({
   name: "PostWriter",
@@ -40,29 +49,51 @@ export default defineComponent({
         required:true
       },
   },
-  setup(props){
+
+  setup(props,ctx){
       const title = ref(props.post.title);
       const markdown = ref(props.post.markdown)
       const contentEditable = ref<null | HTMLDivElement>(null);
       const html = ref('');
 
+      const options:MarkedOptions = {
+        highlight:(code:string)=>highlightAuto(code).value
+      };
+
       const handleEdit = () =>{
         //@ts-ignore
         markdown.value =  contentEditable.value.innerText
-      }
-    watch(
-      ()=>markdown.value,
-      (value)=>{html.value = parse(value)},
-      { immediate:true}
-      );
+      };
 
+      //保存
+      const handleSubmit = ()=>{
+        //将完整数据提交到父级
+        const post: Post = {
+          ...props.post,
+          title: title.value,
+          markdown: markdown.value,
+          html: html.value
+        };
+        //注册事件
+        ctx.emit('save',post);
+      }
+
+      const update =  (value: string) => {
+        html.value = parse(value,options)
+      };
+
+      watch(
+         ()=>markdown.value,
+         debounce(update,500),
+         { immediate:true}
+      );
+    
       onMounted(()=>{ 
         //@ts-ignore
         contentEditable.value.innerText = markdown.value ;//div
-    
       });
-      
-      return {title,contentEditable,handleEdit,markdown,html}
-    }
+  
+      return {title,contentEditable,handleEdit,markdown,html,handleSubmit}
+  }
 })
 </script>

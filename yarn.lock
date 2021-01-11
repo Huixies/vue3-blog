@@ -1197,6 +1197,13 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
+"@types/highlight.js@^10.1.0":
+  version "10.1.0"
+  resolved "https://registry.npm.taobao.org/@types/highlight.js/download/@types/highlight.js-10.1.0.tgz#89bb0c202997d7a90a07bd2ec1f7d00c56bb90b4"
+  integrity sha1-ibsMICmX16kKB70uwffQDFa7kLQ=
+  dependencies:
+    highlight.js "*"
+
 "@types/http-proxy-middleware@*":
   version "0.19.3"
   resolved "https://registry.npm.taobao.org/@types/http-proxy-middleware/download/@types/http-proxy-middleware-0.19.3.tgz?cache=0&sync_timestamp=1596841581521&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fhttp-proxy-middleware%2Fdownload%2F%40types%2Fhttp-proxy-middleware-0.19.3.tgz#b2eb96fbc0f9ac7250b5d9c4c53aade049497d03"
@@ -1244,6 +1251,16 @@
   version "7.0.5"
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.5.tgz#dcce4430e64b443ba8945f0290fb564ad5bac6dd"
   integrity sha1-3M5EMOZLRDuolF8CkPtWStW6xt0=
+
+"@types/lodash@^4.14.167":
+  version "4.14.167"
+  resolved "https://registry.npm.taobao.org/@types/lodash/download/@types/lodash-4.14.167.tgz?cache=0&sync_timestamp=1609519899037&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Flodash%2Fdownload%2F%40types%2Flodash-4.14.167.tgz#ce7d78553e3c886d4ea643c37ec7edc20f16765e"
+  integrity sha1-zn14VT48iG1OpkPDfsftwg8Wdl4=
+
+"@types/marked@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/@types/marked/download/@types/marked-1.2.1.tgz#9864ecc10d0edb72e7be4e94acb5fcc607c15eed"
+  integrity sha1-mGTswQ0O23Lnvk6UrLX8xgfBXu0=
 
 "@types/mime@*":
   version "2.0.3"
@@ -1343,6 +1360,11 @@
   integrity sha1-2U7WCOKVvFQkyWAOa4VlQHtrS2s=
   dependencies:
     source-map "^0.6.1"
+
+"@types/uuid@^8.3.0":
+  version "8.3.0"
+  resolved "https://registry.npm.taobao.org/@types/uuid/download/@types/uuid-8.3.0.tgz#215c231dff736d5ba92410e6d602050cce7e273f"
+  integrity sha1-IVwjHf9zbVupJBDm1gIFDM5+Jz8=
 
 "@types/webpack-dev-server@^3.11.0":
   version "3.11.0"
@@ -4887,6 +4909,11 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
+highlight.js@*, highlight.js@^10.5.0:
+  version "10.5.0"
+  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.5.0.tgz#3f09fede6a865757378f2d9ebdcbc15ba268f98f"
+  integrity sha1-Pwn+3mqGV1c3jy2evcvBW6Jo+Y8=
+
 highlight.js@^9.6.0:
   version "9.18.3"
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.18.3.tgz#a1a0a2028d5e3149e2380f8a865ee8516703d634"
@@ -6363,9 +6390,9 @@ lodash.uniq@^4.5.0:
   resolved "https://registry.npm.taobao.org/lodash.uniq/download/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.3, lodash@^4.17.4:
+lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.3, lodash@^4.17.4:
   version "4.17.20"
-  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1597336001963&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
+  resolved "https://registry.npm.taobao.org/lodash/download/lodash-4.17.20.tgz?cache=0&sync_timestamp=1597336125847&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Flodash%2Fdownload%2Flodash-4.17.20.tgz#b44a9b6297bcb698f1c51a3545a2b3b368d59c52"
   integrity sha1-tEqbYpe8tpjxxRo1RaKzs2jVnFI=
 
 log-symbols@^2.2.0:

@@ -10,7 +10,14 @@ const routes: Array<RouteRecordRaw> = [
     path: '/posts/new',
     component: ()=>import('../views/NewPost.vue')
   },
-
+  {
+    path: '/posts/:id',
+    component: ()=>import('../views/ShowPost.vue')
+  },
+  {
+    path: '/posts/:id/edit',
+    component: ()=>import('../views/EditPost.vue')
+  },
 
 ]
 
