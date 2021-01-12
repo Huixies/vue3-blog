@@ -23,10 +23,23 @@
       </div>
     </div>
     
-    <!-- 保存 -->
     <div class="columns">
       <div class="column">
-        <button data-test='submit-post' @click="handleSubmit" class="button is-primary is-pull-right">提交</button>
+        <button 
+          data-test='submit-post' 
+          @click="handleSubmit" 
+          class="button is-primary is-pulled-right"
+        >
+          提交
+        </button>
+      
+        <button 
+          data-test='submit-post' 
+          @click="$router.go(-1)" 
+          class="button is-danger"
+        >
+          取消
+        </button>
       </div>
     </div>
   </div>

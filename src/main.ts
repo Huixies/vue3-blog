@@ -31,6 +31,17 @@ axios.post = async (url: string,payload:Post) => {
     }
 }
 
+//@ts-ignore
+axios.put = async (url: string,payload:Post) => {
+    if (url === '/posts') {
+        await delay(1000);
+        return Promise.resolve({
+            data: {...payload}
+        })
+    }
+}
+
+
 
 const app = createApp(App);
 app.use(router);

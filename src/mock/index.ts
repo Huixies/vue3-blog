@@ -1,5 +1,7 @@
 import moment from "moment";
 import { Post } from "@/types";
+
+moment.locale('zh-cn');
 export const basePost: Post = {
   id: 1,
   title: "米修在线",
