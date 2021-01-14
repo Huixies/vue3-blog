@@ -1,8 +1,7 @@
 <template>
     <form @submit.prevent="handleSubmit">
         <FormInput type='text' name="用户名" v-model="username" :error='usernameStatus.message' />
-        <FormInput type='text' name="密码" v-model="email" :error='emailStatus.message' />
-
+        <FormInput type='password' name="密码" v-model="password" :error='passwordStatus.message' />
         <div class="select">
             <select v-model="rule">
                 <option value="user">用户</option>

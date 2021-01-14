@@ -81,9 +81,15 @@ class Store{
         this.state.loginUser.currentUserId = response.data.id.toString();
    
         console.log(this.state);
-        
+    }
+
+    async signOut() {
+        // 创建用户
+        this.state.loginUser.currentUserId = undefined;
+   
+        console.log(this.state);
     }
 }
 
-const store = new Store(initialState())
+const store = new Store(initialState());
 export const useStore = () => store;
