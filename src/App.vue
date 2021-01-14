@@ -6,9 +6,6 @@
   </div>
   <button class="modal-close is-large" @click="modal.hideModal"></button>
 </div>
-<FormInput type='text' name="用户名" v-model="username" error='请填写用户名' />
-{{username}}
-
   <Navbar />
   <section class="section">
     <div class="container">
@@ -31,7 +28,8 @@ export default defineComponent({
   },
   setup() {
     const modal = useModal();
-    const username = ref('username')
+    const username = ref('username');
+
     const style = computed(()=>({
       display:modal.visible.value?'block':'none',
     }));
@@ -40,3 +38,10 @@ export default defineComponent({
   }
 })
 </script>
+
+<style scoped>
+.modal-content{
+  top:18%
+}
+
+</style>

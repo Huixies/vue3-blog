@@ -9,3 +9,12 @@ export interface Post {
   authorId: number;
   created: Moment;
 }
+
+export interface User {
+  id: number;
+  username: string;
+  email?: string;
+  password?: string;
+  password2?: string;
+  rule?: string;
+}

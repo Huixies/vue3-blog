@@ -37,7 +37,7 @@
 
       <teleport to='#modal' v-if="modal.visible">
         <!-- 插入组件/动态组件 -->
-        注册
+        <Signin />
       </teleport>
   </nav>
 </template>
@@ -45,10 +45,13 @@
 <script lang='ts'>
 import {defineComponent,ref} from 'vue';
 import { useModal } from '@/utils/useModal';
+import Signup from '@/views/Signup.vue';
+import Signin from '@/views/Signin.vue';
+
 
 export default defineComponent({
   name: "Navbar",
-  components: {},
+  components: {Signup,Signin},
   setup() {
       return {modal:useModal()};
   }
